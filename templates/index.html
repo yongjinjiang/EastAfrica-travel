@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<style>
+ p>a {
+   position: relative;
+   right: -900px;
+   bottom: 0px;
+ }
+</style>
+
+<link rel="icon" href="data:,">
+<link rel="shortcut icon" href="">
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Welcome to East Africa</title>
+
+  
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+<!-- Our CSS -->
+
+</head>
+
+<body>
+      <!-- "navbar navbar-default navbar-fixed-top" -->
+      <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-light bg-light">
+            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item  active">
+                        <a class="nav-link" href="/index_lugha">English(
+                          Kiswahili)</a>
+                      </li>
+      
+                <li class="nav-item">
+                  <a class="nav-link" href="#bubble">Gallery</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#bubble">register</a>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" href="#slider">about us <span class="sr-only">(current)</span></a>
+                   </li>
+              
+                <!-- <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Disabled</a>
+                </li> -->
+              </ul>
+            </div>
+          </nav>
+
+
+
+
+   <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+         <h2>Welcome to East Africa: A dreamland</h2>
+      </div>
+   </div>
+
+   <div class="container">
+   <div class="row">
+      <div class="col-md-6">
+          <!-- src="{{ url_for('static',filename=key)}}" -->
+       <a href="{{ url_for('static',filename='./photos/03.11.59.jpeg')}}">  <img src="{{ url_for('static',filename='./photos/03.11.59.jpeg')}}"   alt="mountain" style="width:500px;height:400px;"></a>
+      </div>
+
+
+   
+      <div class="col-md-6">
+       <a href="{{ url_for('static',filename='./photos/IMG_4903.JPG')}}">  <img src="{{ url_for('static',filename='./photos/IMG_4903.JPG')}}"    alt="paul" style="width:500px;height:400px;"></a>
+      </div>
+   </div>
+</div>
+
+<br>
+
+ <p><a href='/Gallery' >      click here for more pics...</a></p>
+</body>
+
+
+</html>
