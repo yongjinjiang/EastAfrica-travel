@@ -86,6 +86,9 @@ def names():
 def list():
     return render_template('list.html')
 
+@app.route("/about")
+def about():
+    return render_template('about_us.html')
 
 
 
