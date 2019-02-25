@@ -1,35 +1,33 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "base.html" %}
 
-<h2>Register</h2>
+{% block content %}
+    <h1>Sign In</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.first_name.label }}<br>
+            {{ form.first_name(size=32) }}
+        </p>
+        <p>
+            {{ form.last_name.label }}<br>
+            {{ form.last_name(size=32) }}
+        </p>
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}
+        </p>
+        <p>
+            {{ form.cellphone.label }}<br>
+            {{ form.cellphone(size=32) }}
+        </p>
+       
+        <p>{{ form.submit() }}</p>
+    </form>
 
-<form>
-  First name:
-  <br>
-  <input type="text" name="firstname">
-  <br>
-  
-  Last name:
-  <br>
-  <input type="text" name="lastname">
-  <br>
-  
-  phone:
-  <br>
-  <input type="text" name="phone">
-  <br>
 
-  Email:
-  <br>
-  <input type="text" name="email">
-  <br>
+    {% endblock %}
 
-</form>
 
-<p>Note that the form itself is not visible.</p>
 
-<p>Also note that the default width of a text input field is 20 characters.</p>
 
-</body>
-</html>
+

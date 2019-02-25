@@ -1,0 +1,86 @@
+{% extends "base_lugha.html" %}
+
+
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+crossorigin="anonymous">
+
+
+
+   <div class="container">
+
+    <!-- row 1      -->
+        <div class="row">
+           <div class="col-md-4">
+            <a href="{{ url_for('static',filename='./photos/the-gate-of-the-mountain.jpeg')}}"> <img src="{{ url_for('static',filename='./photos/the-gate-of-the-mountain.jpeg')}}"     alt="the-gate-of-the-mountain" style="width:250px;height:200px;"></a> 
+           </div>
+     
+     
+        
+           <div class="col-md-4">
+            <a href="{{ url_for('static',filename='./photos/IMG_4903.JPG')}}" >  <img src="{{ url_for('static',filename='./photos/IMG_4903.JPG')}}"      alt="paul" style="width:250px;height:200px;"></a>
+           </div>
+
+
+           <div class="col-md-4">
+             <a href="{{ url_for('static',filename='./photos/03.11.52.jpeg')}}" >  <img src="{{ url_for('static',filename='./photos/03.11.52.jpeg')}}"     alt="mountain" style="width:250px;height:200px;"></a> 
+             </div>
+       </div>
+  <!-- row 2      -->
+          
+       <div class="row">
+            <div class="col-md-4">
+             <a href="{{ url_for('static',filename='./photos/kiparaa-hairless-or-open-area.jpeg')}}"> <img src="{{ url_for('static',filename='./photos/kiparaa-hairless-or-open-area.jpeg')}}"   alt="kiparaa(hairless-or-open-area)" style="width:250px;height:200px;"></a> 
+            </div>
+      
+      
+         
+            <div class="col-md-4">
+            <a href="{{ url_for('static',filename='./photos/Mount-Hanang-is-one-of-the-hiking-laver-mountain.jpeg')}}">   <img src="{{ url_for('static',filename='./photos/Mount-Hanang-is-one-of-the-hiking-laver-mountain.jpeg')}}"    alt="Mount-Hanang-is-one-of-the-hiking-laver-mountain" style="width:250px;height:200px;"> </a>
+            </div>
+ 
+ 
+            <div class="col-md-4">
+                <a href="{{ url_for('static',filename='./photos/the-first-summit-and-I-was-aprouding-the-kid-to-get-there.jpeg')}}"  > <img src="{{ url_for('static',filename='./photos/the-first-summit-and-I-was-aprouding-the-kid-to-get-there.jpeg')}}"    alt="the-first-summit-and-I-was-aprouding-the-kid-to-get-there" style="width:250px;height:200px;"></a>
+              </div>
+        </div>
+
+ <!-- row 3      -->
+          
+        <div class="row">
+                <div class="col-md-4">
+             <a href="{{ url_for('static',filename='./photos/03.12.08.jpeg')}}">    <img src="{{ url_for('static',filename='./photos/03.12.08.jpeg')}}"      alt="mountain" style="width:250px;height:200px;"></a>  
+                </div>
+          
+          
+             
+                <div class="col-md-4">
+               <a href="{{ url_for('static',filename='./photos/03.12.07.jpeg')}}">   <img src="{{ url_for('static',filename='./photos/03.12.07.jpeg')}}"     alt="paul" style="width:250px;height:200px;"></a>
+                </div>
+     
+     
+                <div class="col-md-4">
+                  <a href="{{ url_for('static',filename='./photos/03.12.03.jpeg')}}"> <img  src="{{ url_for('static',filename='./photos/03.12.03.jpeg')}}"   alt="mountain" style="width:250px;height:200px;"></a>  
+                  </div>
+            </div>
+
+<!-- row 4 -->
+            <div class="row">
+                    <div class="col-md-4">
+                    <a href="{{ url_for('static',filename='./photos/03.12.00.jpeg')}}" >  <img  src="{{ url_for('static',filename='./photos/03.12.00.jpeg')}}"    alt="mountain" style="width:250px;height:200px;"></a> 
+                    </div>
+              
+              
+                 
+                    <div class="col-md-4">
+                   <a href="{{ url_for('static',filename='./photos/03.11.59.jpeg')}}" >    <img src="{{ url_for('static',filename='./photos/03.11.59.jpeg')}}"    alt="paul" style="width:250px;height:200px;"></a>
+                    </div>
+         
+         
+                    <div class="col-md-4">
+                    <a href="{{ url_for('static',filename='./photos/03.11.53.jpeg')}}" >     <img  src="{{ url_for('static',filename='./photos/03.11.53.jpeg')}}"    alt="mountain" style="width:250px;height:200px;"></a>
+                      </div>
+                </div>
+
+     </div>
+     {% endblock %}
