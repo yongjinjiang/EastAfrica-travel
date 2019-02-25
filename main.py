@@ -14,6 +14,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 from forms import LoginForm
 
+from send_email_with_attachments import send_an_email
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'any secret string'
@@ -54,41 +56,54 @@ def login():
         person=dict()
         person["first_name"]=form.first_name.data
         person["last_name"]=form.last_name.data
+        person["email"]=form.email.data
+        person["cellphone"]=form.cellphone.data
 
         registered_peopel.append(person)
         with open(csv_path, 'w', newline='') as myfile:
-           fieldnames = ["first_name", "last_name"] 
+           fieldnames = ["first_name", "last_name","email","cellphone"] 
            writer = csv.DictWriter(myfile, fieldnames=fieldnames) 
            writer.writeheader()
 
            for i in range(len(registered_peopel)):
                writer.writerow({'first_name': registered_peopel[i]["first_name"], \
-                   'last_name': registered_peopel[i]['last_name']})
-       
-    
+                   'last_name': registered_peopel[i]['last_name'],\
+                   'email': registered_peopel[i]['email'],\
+                   'cellphone':registered_peopel[i]['cellphone']
+                   })
+               
+        # f= open('test.txt','w')         
+        # f.write(f'Hello World,  {i}') 
+        # f.write(r'This is our new text file1') 
+        # f.write(r'and this is another line.') 
+        # f.close() 
+        subject = f"a new visitor is registered"
+        body = f'Hi there, a new visitor,{person["first_name"]} ,is registered'
+        send_an_email('registered_names.csv',subject=subject,body=body) 
+
         return render_template('login.html',form=form)
     
     return render_template('login.html',  form=form)
 
-@app.route("/registered_people")
-def names():
-    people_df=pd.read_csv(csv_path)
-    people=[]
-    print("people_df=", people_df)
+# @app.route("/registered_people")
+# def names():
+#     people_df=pd.read_csv(csv_path)
+#     people=[]
+#     print("people_df=", people_df)
 
-    for index, row in people_df.iterrows():
+#     for index, row in people_df.iterrows():
           
-          people.append({"first_name": row["first_name"],"last_name": row["last_name"]})
-    # print("people=", people)
-    return   jsonify(people)
+#           people.append({"first_name": row["first_name"],"last_name": row["last_name"]})
+#     # print("people=", people)
+#     return   jsonify(people)
 
-@app.route("/table")
-def list():
-    return render_template('list.html')
+# @app.route("/table")
+# def list():
+#     return render_template('list.html')
 
-@app.route("/about")
-def about():
-    return render_template('about_us.html')
+# @app.route("/about")
+# def about():
+#     return render_template('about_us.html')
 
 
 
