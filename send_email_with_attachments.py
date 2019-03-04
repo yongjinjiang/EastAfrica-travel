@@ -5,13 +5,13 @@ from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email.utils import formatdate
 from email import encoders 
-from config  import EMAIL_ADDRESS,PASSWORD
+from config  import EMAIL_ADDRESS,PASSWORD,toaddr_s
 import os 
 
 def send_an_email(file_name,subject="sending email with attachments",\
             body='from Python!'):
    
-    toaddr_s = ['yjjiangphysics@gmail.com','paul.kaefer@gmail.com']
+   
     me =  EMAIL_ADDRESS
     msg = MIMEMultipart()
     msg['Subject'] = subject
