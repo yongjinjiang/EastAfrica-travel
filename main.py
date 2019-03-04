@@ -62,10 +62,11 @@ def register():
         person["last_name"]=form.last_name.data
         person["email"]=form.email.data
         person["cellphone"]=form.cellphone.data
+        person["comment"]=form.comment.data
 
         registered_peopel.append(person)
         with open(csv_path, 'w', newline='') as myfile:
-           fieldnames = ["first_name", "last_name","email","cellphone"] 
+           fieldnames = ["first_name", "last_name","email","cellphone","comment"] 
            writer = csv.DictWriter(myfile, fieldnames=fieldnames) 
            writer.writeheader()
 
@@ -73,7 +74,8 @@ def register():
                writer.writerow({'first_name': registered_peopel[i]["first_name"], \
                    'last_name': registered_peopel[i]['last_name'],\
                    'email': registered_peopel[i]['email'],\
-                   'cellphone':registered_peopel[i]['cellphone']
+                   'cellphone':registered_peopel[i]['cellphone'],\
+                   'comment':registered_peopel[i]['comment']   
                    })
                
         # f= open('test.txt','w')         
@@ -84,8 +86,8 @@ def register():
         subject = f"a new visitor is registered"
         body = f'Hi there, a new visitor,{person["first_name"]} ,is registered'
         send_an_email('registered_names.csv',subject=subject,body=body) 
-        send_an_email_to_visitor('registered_names.csv',person["email"],subject="Hi, you are registered!",\
-            body='We will contact you soon!') 
+        send_an_email_to_visitor('registered_names.csv',person["email"],subject=f"Hi, dear { person['first_name']} { person['last_name']}, you are registered!",\
+            body='We will contact you soon!')
         return render_template('register_form.html',form=form)
     
     return render_template('register_form.html',  form=form)
@@ -108,10 +110,11 @@ def register_lugha():
         person["last_name"]=form['last_name'].data
         person["email"]=form['email'].data
         person["cellphone"]=form['cellphone'].data
+        person["comment"]=form['comment'].data
 
         registered_peopel.append(person)
         with open(csv_path, 'w', newline='') as myfile:
-           fieldnames = ["first_name", "last_name","email","cellphone"] 
+           fieldnames = ["first_name", "last_name","email","cellphone","comment"] 
            writer = csv.DictWriter(myfile, fieldnames=fieldnames) 
            writer.writeheader()
 
@@ -119,7 +122,8 @@ def register_lugha():
                writer.writerow({'first_name': registered_peopel[i]["first_name"], \
                    'last_name': registered_peopel[i]['last_name'],\
                    'email': registered_peopel[i]['email'],\
-                   'cellphone':registered_peopel[i]['cellphone']
+                   'cellphone':registered_peopel[i]['cellphone'],\
+                    'comment':registered_peopel[i]['comment']   
                    })
                
         # f= open('test.txt','w')         
@@ -130,7 +134,7 @@ def register_lugha():
         subject = f"a new visitor is registered"
         body = f'Hi there, a new visitor,{person["first_name"]} ,is registered'
         send_an_email('registered_names.csv',subject=subject,body=body) 
-        send_an_email_to_visitor('registered_names.csv',person["email"],subject="Hi, you are registered!",\
+        send_an_email_to_visitor('registered_names.csv',person["email"],subject=f"Hi, dear { person['first_name']} { person['last_name']}, you are registered!",\
             body='We will contact you soon!')
         return render_template('register_form_lugha.html',form=form)
     
