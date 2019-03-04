@@ -65,16 +65,20 @@
               </ul>
             </div>
           </nav>
-
+<center>
+  
           {% with messages = get_flashed_messages() %}
           {% if messages %}
-          <ul>
+          <h2 >{{messages[0]}} </h2>
+          <!-- <ul>
               {% for message in messages %}
               <li>{{ message }}</li>
               {% endfor %}
-          </ul>
+          </ul> -->
           {% endif %}
           {% endwith %}
+  
+</center>
           {% block content %}{% endblock %}
 
   </body>
