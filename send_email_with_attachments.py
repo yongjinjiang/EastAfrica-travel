@@ -23,7 +23,7 @@ def send_an_email(file_name,subject="sending email with attachments",\
 
     part.set_payload(open(file_name, "rb").read())
     encoders.encode_base64(part)
-    part.add_header(f'Content-Disposition', f'attachment; filename={file_name.split("/")[-1]}')
+    part.add_header('Content-Disposition', 'attachment; filename=' + file_name.split("/")[-1])
     msg.attach(part)
 
 
@@ -60,7 +60,7 @@ def send_an_email_to_visitor(file_name,Visitor_email,subject="sending email with
     
     part.set_payload(open(file_name, "rb").read())
     encoders.encode_base64(part)
-    part.add_header(f'Content-Disposition', f'attachment; filename={file_name.split("/")[-1]}')
+    part.add_header('Content-Disposition', 'attachment; filename=' + file_name.split("/")[-1])
     # msg.attach(part)
 
 

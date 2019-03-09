@@ -1,7 +1,7 @@
 import os
 import csv
 
-import pandas as pd
+#import pandas as pd
 import numpy as np
 
 import sqlalchemy
@@ -83,10 +83,10 @@ def register():
         # f.write(r'This is our new text file1') 
         # f.write(r'and this is another line.') 
         # f.close() 
-        subject = f"a new visitor is registered"
-        body = f'Hi there, a new visitor,{person["first_name"]} ,is registered'
-        send_an_email('registered_names.csv',subject=subject,body=body) 
-        send_an_email_to_visitor('registered_names.csv',person["email"],subject=f"Hi, dear { person['first_name']} { person['last_name']}, you are registered!",\
+        subject = "a new visitor is registered"
+        body = "Hi there, a new visitor, " + person["first_name"] + " ,is registered"
+        send_an_email('registered_names.csv', subject=subject,body=body) 
+        send_an_email_to_visitor('registered_names.csv',person["email"],subject="Hi, " + person['first_name'] +  person['last_name'] + " you are registered!",\
             body='We will contact you soon!')
         return render_template('register_form.html',form=form)
     
@@ -106,15 +106,15 @@ def register_lugha():
             form['first_name'].data, form['last_name'].data))
         # print('flash data',form.first_name.data)
         person=dict()
-        person["first_name"]=form['first_name'].data
-        person["last_name"]=form['last_name'].data
-        person["email"]=form['email'].data
-        person["cellphone"]=form['cellphone'].data
-        person["comment"]=form['comment'].data
+        person["first_name"] = form['first_name'].data
+        person["last_name"] = form['last_name'].data
+        person["email"] = form['email'].data
+        person["cellphone"] = form['cellphone'].data
+        person["comment"] = form['comment'].data
 
         registered_peopel.append(person)
         with open(csv_path, 'w', newline='') as myfile:
-           fieldnames = ["first_name", "last_name","email","cellphone","comment"] 
+           fieldnames = ["first_name", "last_name", "email", "cellphone", "comment"] 
            writer = csv.DictWriter(myfile, fieldnames=fieldnames) 
            writer.writeheader()
 
@@ -131,10 +131,10 @@ def register_lugha():
         # f.write(r'This is our new text file1') 
         # f.write(r'and this is another line.') 
         # f.close() 
-        subject = f"a new visitor is registered"
-        body = f'Hi there, a new visitor,{person["first_name"]} ,is registered'
+        subject = "a new visitor is registered"
+        body = "Hi there, a new visitor, " + person["first_name"] + ", is registered"
         send_an_email('registered_names.csv',subject=subject,body=body) 
-        send_an_email_to_visitor('registered_names.csv',person["email"],subject=f"Hi, dear { person['first_name']} { person['last_name']}, you are registered!",\
+        send_an_email_to_visitor('registered_names.csv',person["email"],subject = "Hi, " + person['first_name'] +person['last_name'] + ", you are registered!",\
             body='We will contact you soon!')
         return render_template('register_form_lugha.html',form=form)
     
@@ -164,8 +164,6 @@ def about_lugha():
 @app.route("/about")
 def about():
     return render_template('about_us.html')
-
-
 
 if __name__ == "__main__":
     app.run()
