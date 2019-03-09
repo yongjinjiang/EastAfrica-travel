@@ -12,15 +12,16 @@ from sqlalchemy import create_engine
 from flask import Flask, jsonify, render_template,flash,redirect,url_for
 from flask_sqlalchemy import SQLAlchemy
 
-from forms import LoginForm, LoginForm_lugha
+from .forms import LoginForm, LoginForm_lugha
 
-from send_email_with_attachments import send_an_email,send_an_email_to_visitor
+from .send_email_with_attachments import send_an_email,send_an_email_to_visitor
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'any secret string'
+from .config import secret_key
+app.config['SECRET_KEY'] = secret_key
 
-app.config["TEMPLATES_AUTO_RELOAD"]=True
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 
 @app.route("/")
