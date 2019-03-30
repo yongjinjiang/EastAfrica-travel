@@ -5,8 +5,12 @@ from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email.utils import formatdate
 from email import encoders 
-from config  import EMAIL_ADDRESS,PASSWORD,toaddr_s
 import os 
+# from config  import EMAIL_ADDRESS,PASSWORD,toaddr_s
+EMAIL_ADDRESS=os.environ.get("EMAIL_ADDRESS")
+PASSWORD=os.environ.get("PASSWORD")
+toaddr_s=os.environ.get("toaddr_s")
+
 
 def send_an_email(file_name,subject="sending email with attachments",\
             body='from Python!'):
